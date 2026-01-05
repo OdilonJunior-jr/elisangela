@@ -108,12 +108,20 @@
         }
         .btn svg { fill: currentColor; width: 20px; height: 20px; }
 
-        /* --- ESTILO BASE DO BOTÃO INSTAGRAM --- */
+        /* --- ESTILO BASE DO BOTÃO INSTAGRAM (CORRIGIDO) --- */
         .btn-insta {
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
             border: none !important;
-            padding: 14px 25px;
             color: #fff !important;
+            /* Definições para manter o formato circular */
+            width: 50px;
+            height: 50px;
+            padding: 0; /* Remove padding retangular */
+            border-radius: 50%; /* Círculo perfeito */
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex: none; /* Evita achatamento */
         }
         .btn-insta:hover { 
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
@@ -122,7 +130,11 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             color: #fff !important;
         }
-        .btn-insta svg { fill: #fff !important; }
+        .btn-insta svg { 
+            fill: #fff !important; 
+            width: 24px; /* Tamanho fixo do ícone */
+            height: 24px;
+        }
 
         /* --- SOBRE --- */
         .sobre { padding: 120px 0; }
@@ -213,7 +225,7 @@
         .whatsapp-icon { width: 32px; height: 32px; fill: white; }
 
         /* ==================================================================
-           MEDIA QUERIES (CORREÇÕES PARA MOBILE)
+           MEDIA QUERIES
            ================================================================== */
         @media (max-width: 768px) {
             .container { padding: 0 20px; } 
@@ -257,22 +269,10 @@
             /* Botões Gerais: Ocupam 100% da largura para toque fácil */
             .btn { width: 100%; max-width: 350px; }
             
-            /* CORREÇÃO DO BOTÃO INSTAGRAM - TRAVADO PARA NÃO ESTICAR */
-            a.btn.btn-insta {
-                width: 50px !important;
-                min-width: 50px !important;
-                max-width: 50px !important;
-                height: 50px !important;
-                padding: 0 !important;
-                border-radius: 50% !important;
-                flex: none !important;
-                display: inline-flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-            }
-            a.btn.btn-insta svg { width: 24px; height: 24px; }
+            /* NOTA: Removemos a correção específica do Instagram daqui 
+               porque ela já foi aplicada no CSS global acima. */
 
-            /* CORREÇÃO WHATSAPP - Tamanho e posição ajustados */
+            /* CORREÇÃO WHATSAPP */
             .whatsapp-float {
                 width: 55px;
                 height: 55px;
