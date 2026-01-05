@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elisângela Oliveira - Terapia Sistêmica e Integrativa em Uberaba. Ressignifique sua história com atendimentos presenciais e online.">
+    <title>Elisângela Oliveira | Terapia Sistêmica & Integrativa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cor-primaria: #636B2F; 
+            --cor-secundaria: #8E965B; 
+            --cor-fundo: #FDFDFD; 
+            --cor-bg-secao: #F7F8F4; 
+            --cor-texto: #2D2D2D; 
+            --cor-destaque: #B08D55; 
+            --fonte-titulo: 'Playfair Display', serif;
+            --fonte-texto: 'Lato', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-x: hidden; scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--fonte-texto);
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        h1, h2, h3 { font-family: var(--fonte-titulo); color: var(--cor-primaria); font-weight: 600; }
+        
+        /* --- NAV --- */
+        nav {
+            background: rgba(255,255,255,0.98);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .nav-logo-img { height: 75px; width: auto; }
+
+        .nav-links a {
+            margin-left: 35px;
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--cor-destaque); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('herolis.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content { max-width: 850px; padding: 40px; }
+        .hero-content h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 25px; color: #fff; line-height: 1.1; }
+        .hero-content p { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 40px; font-weight: 300; }
+
+        /* --- BOTOES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 35px;
+            background-color: var(--cor-primaria);
+            color: #fff;
+            text-decoration: none !important;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            border: 1px solid var(--cor-primaria);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn:hover { 
+            background-color: transparent; 
+            color: var(--cor-primaria); 
+            transform: translateY(-2px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .btn svg { fill: currentColor; width: 20px; height: 20px; }
+
+        /* --- ESTILO BASE DO BOTÃO INSTAGRAM --- */
+        .btn-insta {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+            border: none !important;
+            padding: 14px 25px;
+            color: #fff !important;
+        }
+        .btn-insta:hover { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+            opacity: 0.9; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: #fff !important;
+        }
+        .btn-insta svg { fill: #fff !important; }
+
+        /* --- SOBRE --- */
+        .sobre { padding: 120px 0; }
+        .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .sobre-img { width: 100%; border-radius: 12px; box-shadow: 20px 20px 0px var(--cor-bg-secao); }
+        .sobre-texto h4 { color: var(--cor-destaque); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px; }
+        .sobre-texto h2 { font-size: 2.8rem; margin-bottom: 25px; }
+        .sobre-texto p { margin-bottom: 30px; color: #555; }
+
+        /* --- BOX DE FORMAÇÃO --- */
+        .box-formacao {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--cor-destaque);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .box-formacao h5 {
+            font-family: var(--fonte-titulo);
+            color: var(--cor-primaria);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        .lista-credenciais { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .lista-credenciais li { font-size: 0.85rem; color: #555; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+        .lista-credenciais li::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: var(--cor-destaque); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+
+        /* --- SEÇÃO: PARA QUEM É --- */
+        .para-quem { padding: 100px 0; background-color: #fff; }
+        .para-quem-header { text-align: center; max-width: 750px; margin: 0 auto 60px; }
+        .para-quem-header h2 { margin-bottom: 20px; }
+        .para-quem-header p { font-size: 1.1rem; color: #555; }
+        .lista-sintomas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .item-sintoma { background: var(--cor-bg-secao); padding: 30px; border-radius: 8px; border-left: 4px solid var(--cor-destaque); transition: transform 0.3s ease; }
+        .item-sintoma:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .item-sintoma h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--cor-primaria); font-family: var(--fonte-texto); font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .item-sintoma p { font-size: 0.95rem; color: #555; line-height: 1.6; }
+
+        /* --- SERVICOS --- */
+        .servicos { background-color: var(--cor-bg-secao); padding: 100px 0; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); }
+        .banner-header { height: 240px; overflow: hidden; border-bottom: 4px solid var(--cor-destaque); background-color: var(--cor-primaria); }
+        .banner-img-cover { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.9; }
+        .card-content { padding: 40px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-content h3 { margin-bottom: 15px; }
+        .card-content p { color: #666; font-size: 1rem; margin-bottom: 30px; }
+
+        /* --- LOCALIZACAO --- */
+        .localizacao { padding: 100px 0; }
+        .local-box { display: grid; grid-template-columns: 1fr 1.2fr; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.05); }
+        .local-info { padding: 60px; background-color: var(--cor-primaria); color: #fff; }
+        .local-info h2 { color: #fff; margin-bottom: 20px; }
+        .endereco-destaque { font-size: 1.1rem; margin: 30px 0; border-left: 2px solid var(--cor-destaque); padding-left: 20px; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--cor-primaria); color: #F0F0F0; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; margin-bottom: 60px; }
+        .footer-links-container { display: flex; flex-direction: column; gap: 15px; }
+        
+        .footer-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+        .footer-btn:hover { background: #fff; color: var(--cor-primaria); border-color: #fff; }
+        
+        /* Botão Flutuante Whatsapp */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background-color: #25d366; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 9999;
+        }
+        .whatsapp-icon { width: 32px; height: 32px; fill: white; }
+
+        /* ==================================================================
+           MEDIA QUERIES (CORREÇÕES PARA MOBILE)
+           ================================================================== */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; } 
+            .nav-links { display: none; }
+            
+            .hero { 
+                height: auto; 
+                min-height: 90vh;
+                padding: 100px 0 60px; 
+                background-attachment: scroll; 
+                background-position: 25% center; 
+            }
+
+            .hero-content { 
+                background: rgba(0, 0, 0, 0.5); 
+                backdrop-filter: blur(5px); 
+                border-radius: 15px; 
+                width: 100%; 
+                padding: 30px 20px;
+                margin-top: 20px;
+            }
+            .hero-content h1 { font-size: 2rem; } 
+
+            .grid-cards, .lista-sintomas { grid-template-columns: 1fr; gap: 30px; }
+
+            .sobre { padding: 60px 0; }
+            .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+            .sobre-img-container { margin: 0 auto; max-width: 90%; }
+            .sobre-texto { text-align: center; }
+            
+            .box-formacao { text-align: left; margin-top: 20px; }
+            .lista-credenciais { grid-template-columns: 1fr; }
+            
+            .local-box { grid-template-columns: 1fr; display: flex; flex-direction: column-reverse; }
+            .local-info { text-align: center; padding: 40px 20px; }
+            .mapa-container { height: 300px; width: 100%; }
+
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .footer-links-container { align-items: center; }
+
+            /* Botões Gerais: Ocupam 100% da largura para toque fácil */
+            .btn { width: 100%; max-width: 350px; }
+            
+            /* CORREÇÃO DO BOTÃO INSTAGRAM - TRAVADO PARA NÃO ESTICAR */
+            a.btn.btn-insta {
+                width: 50px !important;
+                min-width: 50px !important;
+                max-width: 50px !important;
+                height: 50px !important;
+                padding: 0 !important;
+                border-radius: 50% !important;
+                flex: none !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            a.btn.btn-insta svg { width: 24px; height: 24px; }
+
+            /* CORREÇÃO WHATSAPP - Tamanho e posição ajustados */
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 25px;
+                right: 25px;
+            }
+            .whatsapp-icon { width: 28px; height: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <img src="logo.png" alt="Elisângela Oliveira" class="nav-logo-img">
+            <div class="nav-links">
+                <a href="#sobre">A Terapeuta</a>
+                <a href="#servicos">Atendimentos</a>
+                <a href="#localizacao">Localização</a>
+            </div>
+            <a href="https://wa.me/message/LRTKXENO7E3SO1" target="_blank" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">Agendar</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>"O que não se encerra, <br><span style="font-style: italic; font-weight: 400;">se repete.</span>"</h1>
+            <p>Ressignifique sua história familiar por meio da Terapia Sistêmica em Uberaba com Elisângela Oliveira.</p>
+            <a href="https://wa.me/message/LRTKXENO7E3SO1" target="_blank" class="btn">Agendar Atendimento</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-img-container">
+                    <img src="elis_azul.jpg" alt="Elisângela Oliveira" class="sobre-img">
+                </div>
+                <div class="sobre-texto">
+                    <h4>Cuidado & Consciência</h4>
+                    <h2>Elisângela Oliveira</h2>
+                    <p>Muitas das dores e padrões que carregamos hoje são reflexos de dinâmicas ocultas em nossa ancestralidade. Como terapeuta sistêmica credenciada (CRTH-BR 9743), meu papel é auxiliar você a olhar para essas desordens com respeito e acolhimento.</p>
+                    <p>Meus atendimentos presenciais são realizados em um <strong>espaço clínico reservado</strong>, com infraestrutura completa para garantir o conforto, o sigilo e a privacidade que a sua jornada terapêutica exige.</p>
+                    
+                    <div class="box-formacao">
+                        <h5>Formação & Especialidades</h5>
+                        <ul class="lista-credenciais">
+                            <li>Facilitadora em Constelação Familiar (Individual e Grupo)</li>
+                            <li>Professora de Constelação (Base Bert Hellinger)</li>
+                            <li>Terapeuta Integrativa Sistêmica</li>
+                            <li>Coach Profissional (IBC)</li>
+                            <li>Practitioner em Barras de Access</li>
+                            <li>Mestre em Reiki Shamballa</li>
+                            <li>Mediadora de Círculos de Mulheres</li>
+                            <li>Cristaloterapia, Aromaterapia e Cromoterapia</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/message/LRTKXENO7E3SO1" target="_blank" class="btn">Falar com Elisângela</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="para-quem">
+        <div class="container">
+            <div class="para-quem-header">
+                <h2>A Terapia Sistêmica é para você?</h2>
+                <p>Muitas vezes, o que chamamos de destino é apenas a repetição inconsciente de padrões familiares. Este espaço é para você que:</p>
+            </div>
+
+            <div class="lista-sintomas">
+                <div class="item-sintoma">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cor-destaque);"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
+                        Sente a vida travada
+                    </h3>
+                    <p>Você se esforça, mas tem a sensação de que está andando em círculos, repetindo os mesmos erros nos relacionamentos ou na vida profissional.</p>
+                </div>
+
+                <div class="item-sintoma">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cor-destaque);"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 5.68 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-7.32-.42-8.42z"/></svg>
+                        Carrega pesos alheios
+                    </h3>
+                    <p>Sente uma responsabilidade excessiva por salvar ou cuidar dos pais e familiares, muitas vezes deixando a sua própria vida em segundo plano.</p>
+                </div>
+
+                <div class="item-sintoma">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cor-destaque);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        Busca seu lugar
+                    </h3>
+                    <p>Sente que não pertence, lida com ansiedade constante ou conflitos familiares que parecem não ter solução, gerando exaustão emocional.</p>
+                </div>
+
+                <div class="item-sintoma">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cor-destaque);"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        Deseja Ressignificar
+                    </h3>
+                    <p>Quer olhar para sua história com novos olhos, honrar o passado, mas ganhar força e liberdade para construir o seu próprio futuro.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/message/LRTKXENO7E3SO1" target="_blank" class="btn">Me identifiquei, quero agendar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+                <h2>Como posso te guiar?</h2>
+            </div>
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="banner-header">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="Terapia Online" class="banner-img-cover">
+                    </div>
+                    <div class="card-content">
+                        <h3>Individual Online</h3>
+                        <p>Atendimento focado em sua demanda específica, no conforto da sua casa, com total sigilo e profundidade.</p>
+                        <a href="https://wa.me/message/LRTKXENO7E3SO1" target="_blank" class="btn">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="banner-header">
+                        <img src="logo_dm_hd.png" alt="DM Instituto" class="banner-img-cover">
+                    </div>
+                    <div class="card-content">
+                        <h3>Presencial em Uberaba</h3>
+                        <p>Sessões realizadas em ambiente presencial preparado para dinâmicas sistêmicas e intervenções.</p>
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            <a href="#localizacao" class="btn">Ver Endereço</a>
+                            
+                            <a href="https://instagram.com/elisangelaoliveira.terapeuta" target="_blank" class="btn btn-insta">
+                                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="localizacao">
+        <div class="container">
+            <div class="local-box">
+                <div class="local-info">
+                    <h2>Nosso Espaço</h2>
+                    <div class="endereco-destaque">
+                        <strong>DM Instituto</strong><br>
+                        Rua Nacib Cury, 443<br>
+                        Uberaba - MG
+                    </div>
+                    <a href="https://www.google.com/maps/dir//Rua+Nacib+Cury,+443+-+Mercês,+Uberaba+-+MG" target="_blank" class="btn" style="background: #fff; color: var(--cor-primaria); width: 100%;">Como Chegar</a>
+                </div>
+                <div class="mapa-container">
+                    <iframe style="width: 100%; height: 100%; border:0;" src="https://maps.google.com/maps?q=Rua%20Nacib%20Cury%2C%20443%20-%20Uberaba&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color: #fff; margin-bottom: 15px;">Elisângela Oliveira</h3>
+                    <p>Terapeuta Sistêmica & Integrativa (CRTH-BR 9743).</p>
+                </div>
+                <div class="footer-links-container">
+                    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="footer-btn">Voltar ao Topo</a>
+                    <a href="#sobre" class="footer-btn">A Terapeuta</a>
+                    <a href="#servicos" class="footer-btn">Atendimentos</a>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem;">
+                © <span id="ano"></span> Elisângela Oliveira. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/message/LRTKXENO7E3SO1" class="whatsapp-float" target="_blank">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <script>
+        document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
